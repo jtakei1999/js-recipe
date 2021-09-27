@@ -1,0 +1,16 @@
+.top {
+  width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 100px 0 100px 0;
+}
+
+#show {
+  text-align: center;
+}
+.button-wrapper {
+  text-align: center;
+}

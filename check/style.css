@@ -1,0 +1,32 @@
+body {
+  background-color: rgb(239, 232, 255);
+}
+#flame {
+  border: solid;
+  margin: 0 15rem;
+  background-color: rgba(122, 144, 240, 0.514);
+}
+#disp {
+  border: 0.2rem solid;
+  margin: 5rem 8rem;
+  background-color: rgb(148, 141, 243);
+}
+.disp {
+  height: 5rem;
+  width: auto;
+  margin: 10px 20px;
+  background-color: rgb(165, 218, 248);
+  font-size: 60px;
+}
+#btn {
+  display: grid;
+  grid-template-columns: repeat(5, 157px);
+  grid-auto-rows: 100px;
+  column-gap: 5px;
+  justify-content: center;
+  align-content: center;
+  margin: 25px;
+}
+input[type="button"] {
+  font-size: 50px;
+}
