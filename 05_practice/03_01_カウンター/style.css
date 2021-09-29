@@ -1,0 +1,38 @@
+.box {
+  width: 50%;
+  background-color: antiquewhite;
+  text-align: center;
+  padding: 50px 30px;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#number {
+  margin-bottom: 50px;
+  font-size: 150%;
+}
+
+#one-up,
+#one-down,
+#double,
+#reset {
+  text-align: center;
+  width: 30%;
+  box-shadow: 0 3px rgb(100, 100, 100);
+  cursor: pointer;
+}
+#one-up:active,
+#one-down:active,
+#double:active,
+#reset:active {
+  box-shadow: none;
+  position: relative;
+  top: 3px;
+}
+
+#reset {
+  margin-top: 50px;
+}
