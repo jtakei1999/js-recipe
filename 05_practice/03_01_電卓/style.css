@@ -57,6 +57,7 @@
   color: white;
   font-weight: bold;
   font-size: 120%;
+  cursor: pointer;
 }
 
 .row .color {
