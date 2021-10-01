@@ -1,8 +1,16 @@
-const oneRows = document.getElementById("one-rows")
-const twoRows = document.getElementById("two-rows")
-const threeRows = document.getElementById("three-rows")
-const fourRows = document.getElementById("four-rows")
-const fiveRows = document.getElementById("five-rows")
-const seven = document.getElementById("seven")
-const sums = document.getElementById("sums")
-let count = 0
+function get_calc(btn) {
+  if (btn.value === "=") {
+    document.dentaku.display.value = eval(document.dentaku.display.value)
+  } else if (btn.value === "C") {
+    document.dentaku.display.value = ""
+  } else {
+    if (btn.value === "×") {
+      btn.value = "*"
+    } else if (btn.value === "÷") {
+      btn.value = "/"
+    }
+    document.dentaku.display.value += btn.value
+    document.dentaku.add_btn.value = "×"
+    document.dentaku.div_btn.value = "÷"
+  }
+}

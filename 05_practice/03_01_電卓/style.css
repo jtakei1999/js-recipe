@@ -19,7 +19,7 @@
   height: 370px;
 }
 
-.sum {
+.display {
   display: inline-block;
   text-align: right;
   font-size: 250%;
@@ -64,7 +64,7 @@
   background-color: rgb(255, 166, 31);
 }
 
-.one .part {
+.one .operator {
   background-color: rgb(226, 226, 226);
   color: black;
 }

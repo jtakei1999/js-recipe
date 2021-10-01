@@ -8,39 +8,84 @@
     <title>電卓</title>
   </head>
   <body>
-    <div class="all">
+    <div class="all" name="dentaku">
       <div class="container">
-        <div id="sums" class="sum">0</div>
+        <input type="text" class="display" name="display" value="" disabled />
         <div id="push-part" class="push">
           <div id="one-rows" class="one row">
-            <input class="part" type="button" value="C" />
-            <input class="part" type="button" value="±" />
-            <input class="part" type="button" value="%" />
-            <input class="color" type="button" value="÷" />
+            <input
+              class="operator"
+              type="button"
+              name="div_btn"
+              onclick="get_calc(this)"
+              value="C"
+            />
+            <input
+              class="operator"
+              type="button"
+              name="div_btn"
+              onclick="get_calc(this)"
+              value="±"
+            />
+            <input
+              class="operator"
+              type="button"
+              name="div_btn"
+              onclick="get_calc(this)"
+              value="%"
+            />
+            <input
+              class="color operator"
+              type="button"
+              name="div_btn"
+              onclick="get_calc(this)"
+              value="÷"
+            />
           </div>
           <div id="two-rows" class="two row">
-            <input id="seven" type="button" value="7" />
-            <input type="button" value="8" />
-            <input type="button" value="9" />
-            <input class="color" type="button" value="×" />
+            <input type="button" onclick="get_calc(this)" value="7" />
+            <input type="button" onclick="get_calc(this)" value="8" />
+            <input type="button" onclick="get_calc(this)" value="9" />
+            <input
+              class="color operator"
+              type="button"
+              name="add_btn"
+              onclick="get_calc(this)"
+              value="×"
+            />
           </div>
           <div id="three-rows" class="three row">
-            <input type="button" value="4" />
-            <input type="button" value="5" />
-            <input type="button" value="6" />
-            <input class="color" type="button" value="-" />
+            <input type="button" onclick="get_calc(this)" value="4" />
+            <input type="button" onclick="get_calc(this)" value="5" />
+            <input type="button" onclick="get_calc(this)" value="6" />
+            <input
+              class="color operator"
+              type="button"
+              onclick="get_calc(this)"
+              value="-"
+            />
           </div>
           <div id="four-rows" class="four row">
-            <input type="button" value="1" />
-            <input type="button" value="2" />
-            <input type="button" value="3" />
-            <input class="color" type="button" value="+" />
+            <input type="button" onclick="get_calc(this)" value="1" />
+            <input type="button" onclick="get_calc(this)" value="2" />
+            <input type="button" onclick="get_calc(this)" value="3" />
+            <input
+              class="color operator"
+              type="button"
+              onclick="get_calc(this)"
+              value="+"
+            />
           </div>
           <div id="five-rows" class="five row">
-            <input type="button" value="0" />
-            <input type="button" value="00" />
-            <input type="button" value="." />
-            <input class="color" type="button" value="=" />
+            <input type="button" onclick="get_calc(this)" value="0" />
+            <input type="button" onclick="get_calc(this)" value="00" />
+            <input type="button" onclick="get_calc(this)" value="." />
+            <input
+              class="color equal"
+              type="button"
+              onclick="get_calc(this)"
+              value="="
+            />
           </div>
         </div>
       </div>
