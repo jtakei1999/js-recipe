@@ -47,6 +47,7 @@ addButton.onclick = function() {
 
   inputElement.value = ""
 }
+//Enterキーで追加可能処理
 inputElement.onkeydown = function(event) {
   if (event.key === "Enter") {
     const card = createCard(inputElement.value)
