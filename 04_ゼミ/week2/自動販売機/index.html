@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自販機</title>
+  </head>
+  <body>
+    <h1>自販機</h1>
+    <section>
+      <h3>自販機にお金を入れる</h3>
+      <button id="add-button-100">
+        100円入れる
+      <button id="add-button-150">
+          150円入れる
+      </button>
+      <h4>↓財布↓</h4>
+      <div id="display-saifu">1000</div>
+      <h4>↓投入金額↓</h4>
+      <div id="display-jihanki-money">0</div>
+    </section>
+    <section>
+      <h3>商品を買う</h3>
+      <button id="buy-button-alcohol">お酒(150円)</button>
+      <button id="buy-button-tea">お茶(100円)</button>
+      <h3>お釣りレバー</h3>
+      <button id="return-button-tea">お釣りレバー</button>
+    </section>
+    <section>
+      <h3>買った商品</h3>
+      <div id="display-items"></div>
+    </section>
+    <script>
+      // HTML要素を取得する
+      const buyButtonTea = document.getElementById("buy-button-tea");
+      const displayItems = document.getElementById("display-items");
+      const displaySaifu = document.getElementById("display-saifu");
+      const addButton100 = document.getElementById("add-button-100");
+      const displayJihankiMoney = document.getElementById(
+        "display-jihanki-money"
+      );
+      const buyButtonBeer = document.getElementById("buy-button-alcohol");
+      const oturiButton = document.getElementById("return-button-tea");
+      const addButton150 = document.getElementById("add-button-150");
+
+      let countOtya = 100;
+      let countBeer = 150;
+      let saifu = 1000;
+      let jihanki = 0;
+
+      addButton100.onclick = function () {
+        if (saifu >= 100) {
+          saifu -= countOtya;
+          displaySaifu.textContent = saifu;
+
+          jihanki += countOtya;
+          displayJihankiMoney.textContent = jihanki;
+        }
+      };
+
+
+      addButton150.onclick = function () {
+        if (saifu >= 150) {
+          saifu -= countBeer;
+          displaySaifu.textContent = saifu;
+
+          jihanki += countBeer;
+          displayJihankiMoney.textContent = jihanki;
+        }
+      };
+
+      // buyButtonTea を押した時の処理
+      buyButtonTea.onclick = function () {
+       // buyButtonTea.disabled = false //押せる
+       // buyButtonTea.disabled = true //押せない
+        if (jihanki >= 100) {
+          jihanki -= countOtya;
+          displayJihankiMoney.textContent = jihanki;
+          displayItems.textContent += "🍵";
+        }
+        else if(jihanki < 100) {
+          buyButtonTea.disabled = true //押せない
+        }
+        else if(jihanki < 150){
+        buyButtonBeer.disabled = true //押せない
+        }
+        else {
+          buyButtonTea.disabled = false
+        }
+      };
+
+      buyButtonBeer.onclick = function () {
+        if (jihanki >= 150) {
+          jihanki -= countBeer;
+          displayJihankiMoney.textContent = jihanki;
+          displayItems.textContent += "🍺";
+        }
+        else if(jihanki < 150) {
+          buyButtonBeer.disabled = true
+        }
+        else if(jihanki < 100) {
+          buyButtonTea.disabled = true
+        }
+        else {
+          buyButtonBeer.disabled = false
+        }
+      };
+
+      oturiButton.onclick = function () {
+        saifu += jihanki;
+        jihanki = 0;
+        displaySaifu.textContent = saifu;
+        displayJihankiMoney.textContent = jihanki;
+      };
+    </script>
+  </body>
+</html>
