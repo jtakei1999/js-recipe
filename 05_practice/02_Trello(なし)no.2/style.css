@@ -21,7 +21,8 @@ header {
 }
 .main-container {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  justify-content: left;
   align-items: flex-start;
   height: 100vh;
   padding: 52px 12px 12px 12px;
@@ -32,6 +33,7 @@ header {
   min-width: 250px;
   width: 250px;
   padding: 8px;
+  margin-top: 20px;
   border-radius: 4px;
   background-color: #e2e4e6;
 }

@@ -84,28 +84,117 @@ const createCard = function(text) {
 //ココから発展
 const addCategory = document.getElementById("add-category")
 
-const copyGen = document.getElementById("copy-gen")
+//const copyGen = document.getElementById("copy-gen")
 
-const copySaki = copyGen.cloneNode(true)
+// const copySaki = copyGen.cloneNode(true)
+
+// const newCreateCard = function() {
+//   main.append(copySaki)
+
+//   addButton.onclick = function() {
+//     const card = createCard(inputElement.value)
+//     container.append(card)
+
+//     inputElement.value = ""
+//   }
+//   //Enterキーで追加可能処理
+//   inputElement.onkeydown = function(event) {
+//     if (event.key === "Enter") {
+//       const card = createCard(inputElement.value)
+//       container.append(card)
+
+//       inputElement.value = ""
+//     }
+//   }
+//   const createCard = function(text) {
+//     const card = document.createElement("div")
+//     card.className = "card"
+
+//     const todo = document.createElement("div")
+//     todo.className = "todo"
+//     todo.textContent = text
+//     card.append(todo)
+
+//     const deleteButton = document.createElement("div")
+//     deleteButton.className = "delete"
+
+//     container.append(card)
+//     card.append(todo)
+//     card.append(deleteButton)
+
+//     deleteButton.onclick = function() {
+//       card.remove()
+//     }
+//     return card
+//   }
+// }
+let number = 1
 
 const newCreateCard = function() {
-  main.append(copySaki)
+  const listContainer = document.createElement("div")
+  listContainer.className = "list-container"
+  listContainer.id = "copy-gen"
+  main.append(listContainer)
 
-  addButton.onclick = function() {
-    const card = createCard(inputElement.value)
-    container.append(card)
+  const header = document.createElement("div")
+  header.className = "list-header"
+  header.id = "list-header"
+  header.textContent = number += 1
+  listContainer.append(header)
 
-    inputElement.value = ""
+  const cardsContainer = document.createElement("div")
+  cardsContainer.className = "cards-container"
+  cardsContainer.id = "cards-container"
+  header.after(cardsContainer)
+
+  const listFooter = document.createElement("div")
+  listFooter.className = "list-footer"
+  listFooter.id = "list-footer"
+  cardsContainer.after(listFooter)
+
+  const inputContainer = document.createElement("div")
+  inputContainer.className = "input-container"
+  inputContainer.id = "input-container"
+  listFooter.append(inputContainer)
+
+  const inputTodo = document.createElement("input")
+  inputTodo.className = "input-todo"
+  inputTodo.id = "input-todo"
+  inputContainer.append(inputTodo)
+
+  const inputButton = document.createElement("div")
+  inputButton.className = "input-button"
+  inputButton.id = "add-button"
+  inputButton.textContent = "追加"
+  inputTodo.after(inputButton)
+
+  const category = document.createElement("div")
+  category.className = "category"
+  category.id = "category"
+  listFooter.after(category)
+
+  const addCategory = document.createElement("div")
+  addCategory.className = "add-category"
+  addCategory.id = "add-category"
+  addCategory.textContent = "＋カードを追加"
+  category.append(addCategory)
+
+  inputButton.onclick = function() {
+    const card = createCard(inputTodo.value)
+    cardsContainer.append(card)
+
+    inputTodo.value = ""
   }
   //Enterキーで追加可能処理
-  inputElement.onkeydown = function(event) {
+  inputTodo.onkeydown = function(event) {
     if (event.key === "Enter") {
-      const card = createCard(inputElement.value)
-      container.append(card)
+      const card = createCard(inputTodo.value)
+      cardsContainer.append(card)
 
-      inputElement.value = ""
+      inputTodo.value = ""
     }
   }
+
   const createCard = function(text) {
     const card = document.createElement("div")
     card.className = "card"
@@ -113,12 +202,11 @@ const newCreateCard = function() {
     const todo = document.createElement("div")
     todo.className = "todo"
     todo.textContent = text
-    card.append(todo)
 
     const deleteButton = document.createElement("div")
     deleteButton.className = "delete"
 
-    container.append(card)
+    cardsContainer.append(card)
     card.append(todo)
     card.append(deleteButton)
 
@@ -126,6 +214,10 @@ const newCreateCard = function() {
       card.remove()
     }
     return card
+  }
+
+  addCategory.onclick = function() {
+    newCreateCard()
   }
 }
 
