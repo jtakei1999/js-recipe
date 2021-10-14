@@ -3,8 +3,11 @@ const addButton = document.getElementById("add-button")
 const memoContainer = document.getElementById("memo-container")
 
 addButton.onclick = function() {
-  const card = createCard(memoInput.value)
-  memoContainer.append(card)
+  if (memoInput.value) {
+    const card = createCard(memoInput.value)
+    memoContainer.append(card)
+    console.log(memoInput.value)
+  }
 
   memoInput.value = ""
 }
