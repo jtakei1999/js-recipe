@@ -116,9 +116,7 @@ header {
   user-select: none;
   cursor: pointer;
 }
-.input-container .input-button:hover {
-  background-color: ;
-}
+
 .input-container .input-button:active {
   transform: translateY(2px);
 }

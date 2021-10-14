@@ -41,6 +41,7 @@
 const inputElement = document.getElementById("input-todo")
 const container = document.getElementById("cards-container")
 const addButton = document.getElementById("add-button")
+const main = document.getElementById("main")
 
 addButton.onclick = function() {
   const card = createCard(inputElement.value)
@@ -70,41 +71,25 @@ const createCard = function(text) {
   const deleteButton = document.createElement("div")
   deleteButton.className = "delete"
 
+  container.append(card)
+  card.append(todo)
+  card.append(deleteButton)
+
   deleteButton.onclick = function() {
     card.remove()
   }
-  card.append(deleteButton)
   return card
 }
 
 //ココから発展
 const addCategory = document.getElementById("add-category")
 
-const createNewCard = function() {
-  const copyGen = document.getElementById("copy-gen")
-  const listHeader = document.getElementById("list-header")
-  const cardsContainer = document.getElementsByClassName("cards-container")
-  const listFooter = document.getElementById("list-footer")
-  const inputContainer = document.getElementById("input-container")
-  const inputTodo2 = document.getElementsByClassName("input-todo")
-  const inputButton = document.getElementsByClassName("input-button")
-  const category = document.getElementById("category")
-  const addCategory = document.getElementById("add-category")
+const copyGen = document.getElementById("copy-gen")
 
-  const newCard = copyGen.cloneNode(true)
-  copyGen.after(newCard)
+const copySaki = copyGen.cloneNode(true)
 
-  copyGen.setAttribute("class", "list-container")
-  listHeader.setAttribute("class", "list-header")
-  cardsContainer.setAttribute("id", "cards-container")
-  cardsContainer.setAttribute("class", "cards-container")
-  listFooter.setAttribute("class", "list-footer")
-  inputContainer.setAttribute("class", "input-container")
-  inputTodo2.setAttribute("id", "input-todo")
-  inputButton.setAttribute("id", "add-button")
-  addCategory.setAttribute("class", "add-category")
-  category.setAttribute("class", "category")
-  addCategory.setAttribute("class", "add-category")
+const newCreateCard = function() {
+  main.append(copySaki)
 
   addButton.onclick = function() {
     const card = createCard(inputElement.value)
@@ -121,7 +106,6 @@ const createNewCard = function() {
       inputElement.value = ""
     }
   }
-
   const createCard = function(text) {
     const card = document.createElement("div")
     card.className = "card"
@@ -134,14 +118,17 @@ const createNewCard = function() {
     const deleteButton = document.createElement("div")
     deleteButton.className = "delete"
 
+    container.append(card)
+    card.append(todo)
+    card.append(deleteButton)
+
     deleteButton.onclick = function() {
       card.remove()
     }
-    card.append(deleteButton)
     return card
   }
 }
 
 addCategory.onclick = function() {
-  createNewCard()
+  newCreateCard()
 }
