@@ -23,6 +23,19 @@
       const memoContainer = document.getElementById("memo-container")
 
       let memos = []
+      if (localStorage.memos) {
+        // ローカルストレージのmemosキーからJSONを読み込む。
+        const memosJson = localStorage.memos
+        // JSON.parseで配列にして、memosを更新する。
+        memos = JSON.parse(memosJson)
+
+        // ページ読み込み時に、配列の内容をブラウザに反映する。
+        for (let i = 0; i < memos.length; i++) {
+          const element = document.createElement("div")
+          element.textContent = memos[i]
+          memoContainer.append(element)
+        }
+      }
 
       addButton.onclick = function() {
         if (memoInput.value) {
@@ -30,6 +43,7 @@
           // memoContainer.append(card);
           memoContainer.innerHTML = ""
           memos.push(memoInput.value)
+          localStorage.memos = JSON.stringify(memos)
           console.log(memos)
           memoInput.value = ""
           show()
