@@ -9,6 +9,7 @@
 //     imageElement.src = data.message // 画像を表示する
 //   })
 const imageElement = document.getElementById("dog-image")
+const loadButton = document.getElementById("load-button")
 
 fetch("https://dog.ceo/api/breeds/image/random")
   .then((res) => {
@@ -17,3 +18,23 @@ fetch("https://dog.ceo/api/breeds/image/random")
   .then((data) => {
     imageElement.src = data.message
   })
+
+loadButton.onclick = function() {
+  location.reload()
+
+  fetch("https://dog.ceo/api/breeds/image/random")
+    .then((res) => {
+      return res.json()
+    })
+    .then((data) => {
+      imageElement.src = data.message
+    })
+
+  // fetch("https://dog.ceo/api/breeds/image/random")
+  //   .then((res) => {
+  //     return res.json()
+  //   })
+  //   .then((data) => {
+  //     imageElement.src = data.message
+  //   })
+}
