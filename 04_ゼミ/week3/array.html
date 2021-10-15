@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>WebExpertコーステンプレート</title>
+  </head>
+  <body>
+    <h2 class="header">✏メモ帳✏</h2>
+    <div class="top-wrapper">
+      <div class="container">
+        <input id="memo-input" 　class="memo-input" />
+        <button id="add-button" class="add-button">追加</button>
+        <button id="sort-button" class="sort-button">並び替え</button>
+      </div>
+      <div id="memo-container"></div>
+    </div>
+    <script>
+      const memoInput = document.getElementById("memo-input")
+      const addButton = document.getElementById("add-button")
+      const sortButton = document.getElementById("sort-button")
+      const memoContainer = document.getElementById("memo-container")
+
+      let memos = []
+
+      addButton.onclick = function() {
+        if (memoInput.value) {
+          // const card = createCard(memoInput.value);
+          // memoContainer.append(card);
+          memoContainer.innerHTML = ""
+          memos.push(memoInput.value)
+          console.log(memos)
+          memoInput.value = ""
+          show()
+        }
+      }
+
+      const show = function() {
+        for (let i = 0; i < memos.length; i++) {
+          const text = memos[i]
+          const element = document.createElement("div")
+
+          element.textContent = text
+          memoContainer.append(element)
+        }
+      }
+
+      sortButton.onclick = function() {
+        memoContainer.innerHTML = ""
+        memos.sort()
+        show()
+      }
+    </script>
+  </body>
+</html>
