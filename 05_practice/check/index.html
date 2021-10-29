@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀行アプリ</title>
+</head>
+<body>
+<div>
+
+    <div id="v-mode1">
+        <h3>入力画面</h3>
+        <input type="number" v-model="inputValue" />
+        <div>入力額:{{ inputValue }}円</div>
+    </div>
+
+    <div id="app">
+        <button v-on:click="nyuukin">入金</button>
+        <button v-on:click="syukkin">出金</button>
+        <h3>口座残高</h3>
+        <div>残高:{{ zandaka }}円</div>
+    </div>
+    <h3>取引記録</h3>
+    <section id="v-for">
+        <div v-for="item in items" >{{ item in items }}</div>
+    </section>
+ 
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js%22%3E</script>
+    <script src="main.js"></script>
+</body>
+</html>
